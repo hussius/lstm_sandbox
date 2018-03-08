@@ -23,7 +23,7 @@ def one_hot_decode(encoded_seq):
 def get_pair(n_in, n_out, n_unique):
     # generate random sequence
     sequence_in = generate_sequence(n_in, n_unique)
-    sequence_out = sequence_in[:n_out] + [0 for _ in range(n_in-n_out)]
+    sequence_out = sequence_in[1:] + [0] # sequence_in[:n_out] + [0 for _ in range(n_in-n_out)]
     # one hot encode
     X = one_hot_encode(sequence_in, n_unique)
     y = one_hot_encode(sequence_out, n_unique)
